@@ -1,6 +1,6 @@
 # CareerPath
 
-**Live Site URL**: [Visit CareerPath](https://careerpath.com)
+**Live Site URL**: [Visit CareerPath](https://careers-b821b.web.app/signIn)
 
 ## About CareerPath
 
