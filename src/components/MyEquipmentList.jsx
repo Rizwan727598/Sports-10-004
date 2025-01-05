@@ -8,7 +8,6 @@ const MyEquipmentList = () => {
   const [equipment, setEquipment] = useState([]);
   const navigate = useNavigate();
 
-  // Fetch user's equipment
   useEffect(() => {
     if (user) {
       fetch(
@@ -20,7 +19,6 @@ const MyEquipmentList = () => {
     }
   }, [user]);
 
-  // Handle delete
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",

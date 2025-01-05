@@ -7,7 +7,6 @@ const UpdateEquipment = () => {
   const navigate = useNavigate();
   const [equipment, setEquipment] = useState(null);
 
-  // Fetch equipment details
   useEffect(() => {
     fetch(`https://coffee-store-server-five-sandy.vercel.app/equipment/${id}`)
       .then((res) => res.json())

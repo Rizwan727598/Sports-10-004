@@ -7,9 +7,8 @@ import FeaturedProducts from "./FeaturedProducts";
 const Home = () => {
   return (
     <div className="bg-white dark:bg-gray-800">
-      {/* Banner Component */}
       <Banner />
-      {/* Featured Products Component */}
+
       <FeaturedProducts />
       <FeaturedCategories />
       <CustomerReviews />

@@ -8,7 +8,6 @@ const Users = () => {
     Array.isArray(loadedUsers) ? loadedUsers : []
   );
 
-  // Handle Delete User
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -25,7 +24,6 @@ const Users = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
-              // Remove the user from the state
               const remainingUsers = users.filter((user) => user._id !== id);
               setUsers(remainingUsers);
 

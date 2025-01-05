@@ -71,7 +71,6 @@ const Navbar = () => {
           </svg>
         </button>
 
-        {/* Navigation Links */}
         <ul
           className={`${
             menuOpen ? "block" : "hidden"
@@ -131,7 +130,6 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {/* User Controls */}
         <div className="flex items-center space-x-4 mt-4 md:mt-0">
           {!user ? (
             <>

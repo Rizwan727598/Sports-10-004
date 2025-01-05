@@ -14,9 +14,8 @@ import AddEquipment from "./components/AddEquipmentList";
 import PrivateRoute from "./components/PrivateRoute";
 import AuthProvider from "./Providers/AuthProvider";
 import AllSportsEquipment from "./components/AllSportsEquipment";
-import ThemeProvider from "./context/ThemeContext"; // Import ThemeProvider
+import ThemeProvider from "./context/ThemeContext";
 
-// Define router outside of AppRouter
 const router = createBrowserRouter([
   {
     path: "/",

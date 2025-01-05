@@ -7,7 +7,6 @@ const SignUp = () => {
   const { createUser } = useContext(AuthContext);
   const [error, setError] = useState(null);
 
-  // Handle Registration
   const handleSignUp = (e) => {
     e.preventDefault();
     const name = e.target.name.value.trim();
@@ -17,7 +16,6 @@ const SignUp = () => {
 
     setError(null);
 
-    // Validate Password
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!passwordRegex.test(password)) {
       setError(
@@ -26,24 +24,21 @@ const SignUp = () => {
       return;
     }
 
-    // Create User
     createUser(email, password)
       .then((result) => {
         const user = result.user;
 
-        // Update user profile with photoURL and name
         updateProfile(user, { displayName: name, photoURL })
           .then(() => {
             console.log("Profile updated:", user);
 
-            // Show success toast
             Swal.fire({
               icon: "success",
               title: "Registration Successful",
               text: `Welcome, ${user.displayName || "User"}!`,
             });
 
-            e.target.reset(); // Reset the form
+            e.target.reset();
           })
           .catch((err) => {
             console.error("Profile Update Error:", err.message);
@@ -57,7 +52,6 @@ const SignUp = () => {
       .catch((err) => {
         console.error("Registration Error:", err.message);
 
-        // Show error toast
         Swal.fire({
           icon: "error",
           title: "Registration Failed",

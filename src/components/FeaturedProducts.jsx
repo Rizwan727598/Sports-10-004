@@ -30,12 +30,10 @@ const FeaturedProducts = () => {
 
   return (
     <div className="p-6 bg-white dark:bg-gray-800">
-      {/* Page Title */}
       <h1 className="text-4xl font-extrabold mb-8 text-center text-gray-700 dark:text-gray-200">
         Featured Products
       </h1>
 
-      {/* Products Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
         {products.length > 0 ? (
           products.map((product) => (

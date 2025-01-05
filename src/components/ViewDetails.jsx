@@ -38,7 +38,6 @@ const ViewDetails = () => {
   return (
     <div className="p-6 bg-gradient-to-br from-gray-50 to-gray-200 dark:from-gray-800 dark:to-gray-900 min-h-screen flex items-center justify-center">
       <div className="max-w-lg w-full bg-white dark:bg-gray-800 shadow-xl rounded-lg overflow-hidden">
-        {/* Image Section */}
         <div className="relative">
           <img
             src={item.image}
@@ -50,7 +49,6 @@ const ViewDetails = () => {
           </div>
         </div>
 
-        {/* Content Section */}
         <div className="p-6">
           <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-4">
             {item.name}

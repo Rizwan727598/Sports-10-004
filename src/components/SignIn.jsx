@@ -6,7 +6,6 @@ const SignIn = () => {
   const { signInUser, googleSignIn } = useContext(AuthContext);
   const [error, setError] = useState(null);
 
-  // Handle Email and Password Login
   const handleSignIn = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -19,7 +18,6 @@ const SignIn = () => {
         const user = result.user;
         console.log("User signed in:", user);
 
-        // Show success toast
         Swal.fire({
           icon: "success",
           title: "Login Successful",
@@ -29,7 +27,6 @@ const SignIn = () => {
       .catch((err) => {
         console.error("Sign-in error:", err.message);
 
-        // Show error toast
         Swal.fire({
           icon: "error",
           title: "Login Failed",
@@ -38,14 +35,12 @@ const SignIn = () => {
       });
   };
 
-  // Handle Google Login
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
         const user = result.user;
         console.log("Google Sign-In Successful:", user);
 
-        // Show success toast
         Swal.fire({
           icon: "success",
           title: "Login Successful",
@@ -55,7 +50,6 @@ const SignIn = () => {
       .catch((err) => {
         console.error("Google Sign-In Error:", err.message);
 
-        // Show error toast
         Swal.fire({
           icon: "error",
           title: "Google Login Failed",

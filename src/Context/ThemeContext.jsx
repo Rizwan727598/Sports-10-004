@@ -7,9 +7,8 @@ const ThemeProvider = ({ children }) => {
     localStorage.getItem("theme") === "dark"
   );
 
-  // Apply or remove the dark class to the root HTML element
   useEffect(() => {
-    const root = document.documentElement; // <html> element
+    const root = document.documentElement;
     if (darkMode) {
       root.classList.add("dark");
       localStorage.setItem("theme", "dark");
@@ -20,7 +19,7 @@ const ThemeProvider = ({ children }) => {
   }, [darkMode]);
 
   const toggleTheme = () => {
-    setDarkMode((prevMode) => !prevMode); // Toggle dark mode
+    setDarkMode((prevMode) => !prevMode);
   };
 
   return (
