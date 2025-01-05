@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { ThemeContext } from "../context/ThemeContext";
@@ -7,6 +7,8 @@ import ThemeToggle from "./ThemeToggle";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const { darkMode } = useContext(ThemeContext);
+
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogout = async () => {
     try {
@@ -25,7 +27,7 @@ const Navbar = () => {
           : "bg-gray-200 text-gray-800"
       } shadow-lg`}
     >
-      <div className="container mx-auto flex justify-between items-center p-4">
+      <div className="container mx-auto flex justify-between items-center p-4 flex-wrap">
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <h1 className="text-2xl font-bold text-yellow-400">EquiSports</h1>
@@ -38,8 +40,43 @@ const Navbar = () => {
           </span>
         </div>
 
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="block md:hidden focus:outline-none z-50 p-2"
+          style={{
+            backgroundColor: darkMode ? "#222" : "#fff",
+            borderRadius: "8px",
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke={darkMode ? "#fff" : "#000"}
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            {menuOpen ? (
+              <line x1="18" y1="6" x2="6" y2="18" />
+            ) : (
+              <>
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+              </>
+            )}
+          </svg>
+        </button>
+
         {/* Navigation Links */}
-        <ul className="flex space-x-6 text-sm items-center">
+        <ul
+          className={`${
+            menuOpen ? "block" : "hidden"
+          } md:flex md:space-x-6 text-sm items-center w-full md:w-auto mt-4 md:mt-0`}
+        >
           <li>
             <NavLink
               to="/"
@@ -48,6 +85,7 @@ const Navbar = () => {
                   ? "text-yellow-400 underline font-bold"
                   : "hover:text-yellow-400 transition"
               }
+              onClick={() => setMenuOpen(false)}
             >
               Home
             </NavLink>
@@ -60,6 +98,7 @@ const Navbar = () => {
                   ? "text-yellow-400 underline font-bold"
                   : "hover:text-yellow-400 transition"
               }
+              onClick={() => setMenuOpen(false)}
             >
               All Equipment
             </NavLink>
@@ -72,6 +111,7 @@ const Navbar = () => {
                   ? "text-yellow-400 underline font-bold"
                   : "hover:text-yellow-400 transition"
               }
+              onClick={() => setMenuOpen(false)}
             >
               Add Equipment
             </NavLink>
@@ -84,6 +124,7 @@ const Navbar = () => {
                   ? "text-yellow-400 underline font-bold"
                   : "hover:text-yellow-400 transition"
               }
+              onClick={() => setMenuOpen(false)}
             >
               My Equipment
             </NavLink>
@@ -91,18 +132,20 @@ const Navbar = () => {
         </ul>
 
         {/* User Controls */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4 mt-4 md:mt-0">
           {!user ? (
             <>
               <NavLink
                 to="/signIn"
                 className="bg-yellow-400 text-black px-3 py-1 rounded hover:bg-yellow-500 hover:shadow-lg transform hover:scale-105 transition"
+                onClick={() => setMenuOpen(false)}
               >
                 Login
               </NavLink>
               <NavLink
                 to="/signUp"
                 className="bg-yellow-400 text-black px-3 py-1 rounded hover:bg-yellow-500 hover:shadow-lg transform hover:scale-105 transition"
+                onClick={() => setMenuOpen(false)}
               >
                 Register
               </NavLink>
